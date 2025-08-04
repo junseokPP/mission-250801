@@ -32,17 +32,24 @@ public class Main {
                 for(int i=lastIndex-1;i>=0;i--){
                     System.out.println("%d / %s / %s".formatted(wiseSaying[i].num,wiseSaying[i].author,wiseSaying[i].saying));
                 }
-            }else if(command.startsWith("삭제?=1")){
+            }else if(command.startsWith("삭제")){
                 String[] split = command.split("=");
-
+                if(split.length != 2){
+                    System.out.println("번호를 제대로 입력해주세요");
+                    return;
+                }
                 int id = Integer.parseInt(split[1]);
-
-                for(int i=0;i<wiseSaying.length;i++){
+                boolean flag = false;
+                for(int i=0;i<lastIndex;i++){
                     if(id == wiseSaying[i].num){
                         wiseSaying[i] = wiseSaying[i+1];
                         System.out.println("%d번 명언이 삭제되었습니다.".formatted(id));
+                        flag = true;
                         break;
                     }
+                }
+                if(flag == false){
+                    System.out.println("%d번 명언은 존재하지 않습니다.".formatted(id));
                 }
             }else if(command.equals("종료")){
                 break;
