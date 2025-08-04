@@ -8,5 +8,6 @@ public class Main {
         System.out.println("== 명언 앱 ==");
         System.out.print("명령) ");
         sc.nextLine();
+        //main 브랜치로 이름변경
     }
 }
