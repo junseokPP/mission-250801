@@ -16,7 +16,7 @@ public class Main {
                 String saying = sc.nextLine();
                 System.out.print("작가 : ");
                 String author = sc.nextLine();
-                no++;
+                no++; // 4단계에서 해야하는데 3단계로 해버림 따로 코드 변경 없음
                 System.out.println("%d번 명언이 등록되었습니다.".formatted(no));
             }else if(command.equals("종료")){
                 break;
