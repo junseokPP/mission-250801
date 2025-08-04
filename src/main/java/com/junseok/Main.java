@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        int no=0;
         Scanner sc = new Scanner(System.in);
         System.out.println("== 명언 앱 ==");
         while(true) {
@@ -15,6 +16,8 @@ public class Main {
                 String saying = sc.nextLine();
                 System.out.print("작가 : ");
                 String author = sc.nextLine();
+                no++;
+                System.out.println("%d번 명언이 등록되었습니다.".formatted(no));
             }else if(command.equals("종료")){
                 break;
             }
