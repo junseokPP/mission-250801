@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int no=0;
+        int no=0,lastIndex = 0;
+        WiseSaying[] wiseSaying = new WiseSaying[100];
         Scanner sc = new Scanner(System.in);
         System.out.println("== 명언 앱 ==");
         while(true) {
@@ -18,6 +19,19 @@ public class Main {
                 String author = sc.nextLine();
                 no++; // 4단계에서 해야하는데 3단계로 해버림 따로 코드 변경 없음
                 System.out.println("%d번 명언이 등록되었습니다.".formatted(no));
+
+                wiseSaying[lastIndex] = new WiseSaying();
+                wiseSaying[lastIndex].num = no;
+                wiseSaying[lastIndex].author = author;
+                wiseSaying[lastIndex].saying = saying;
+                lastIndex++;
+
+            }else if(command.equals("목록")){
+                System.out.println("번호 / 작가 / 명언");
+                System.out.println("----------------------");
+                for(int i=0;i<wiseSaying.length;i++){
+                    System.out.println("%d / %s / %s".formatted(wiseSaying[i].num,wiseSaying[i].author,wiseSaying[i].saying));
+                }
             }else if(command.equals("종료")){
                 break;
             }
