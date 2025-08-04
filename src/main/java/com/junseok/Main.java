@@ -29,8 +29,20 @@ public class Main {
             }else if(command.equals("목록")){
                 System.out.println("번호 / 작가 / 명언");
                 System.out.println("----------------------");
-                for(int i=0;i<wiseSaying.length;i++){
+                for(int i=lastIndex-1;i>=0;i--){
                     System.out.println("%d / %s / %s".formatted(wiseSaying[i].num,wiseSaying[i].author,wiseSaying[i].saying));
+                }
+            }else if(command.startsWith("삭제?=1")){
+                String[] split = command.split("=");
+
+                int id = Integer.parseInt(split[1]);
+
+                for(int i=0;i<wiseSaying.length;i++){
+                    if(id == wiseSaying[i].num){
+                        wiseSaying[i] = wiseSaying[i+1];
+                        System.out.println("%d번 명언이 삭제되었습니다.".formatted(id));
+                        break;
+                    }
                 }
             }else if(command.equals("종료")){
                 break;
